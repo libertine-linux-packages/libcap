@@ -16,6 +16,9 @@ build_needs "$libertine_build"-cc
 depends build_musl_cross_make_host
 build_needs "$libertine_host"-cc "$libertine_host"-ar "$libertine_host"-ranlib "$libertine_host"-strip
 
+depends build_paxctl
+build_needs paxctl
+
 depends build_perl
 build_needs perl
 
@@ -72,5 +75,8 @@ libertine_compile_libcap()
 		
 	popd
 	
-	libertine_public_installAndStripBinariesIn sbin capsh getcap getpcaps setcap
+	libertine_public_installAndStripBinaryIn sbin capsh
+	libertine_public_installAndStripBinaryIn sbin getcap
+	libertine_public_installAndStripBinaryIn sbin getpcaps
+	libertine_public_installAndStripBinaryIn sbin setcap
 }
