@@ -73,6 +73,10 @@ libertine_compile_libcap()
 			install \
 			LD=true
 		
+		set +f
+			rm -rf "$(libertine_public_outputHostSysrootPath)"/usr/lib/*.so*
+		set -f
+		
 	popd
 	
 	libertine_public_installAndStripBinaryIn sbin capsh
